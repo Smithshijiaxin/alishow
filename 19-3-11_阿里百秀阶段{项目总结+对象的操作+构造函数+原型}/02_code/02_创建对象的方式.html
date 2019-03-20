@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // 1. 字面量
+    var obj = {
+      name: 'Jack'
+    }
+    obj.age = 18
+
+    // 2. 内置构造函数
+    var obj2 = new Object()
+    Object.defineProperty(obj2, 'name', {
+      value: 'Tom'
+    })
+
+    // 3. 工厂函数
+    function createObj(name) {
+      // 自己手动创建一个对象
+      var obj = {}
+
+      // 自己手动操作对象
+      obj.name = name || 'Jack'
+
+      // 自己手动把这个对象返出函数外部
+      return obj
+    }
+
+    var obj3 = createObj('Tom')
+    var obj4 = createObj()
+
+
+    // 4. 构造函数
+    //   和普通函数的区别在于有没有和 new 连用
+    function person() {
+      // 自动帮我们创建了一个对象
+
+      // 手动操作对象
+      this.name = 'person'
+
+      // 自动把对象返出函数外部使用
+    }
+    var p = new person()
+    console.log(p)
+  </script>
+</body>
+</html>

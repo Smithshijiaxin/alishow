@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // 1. 首字母大写
+    // function Person() {
+    //   this.name = 'person'
+    // }
+    // var p = new Person()
+    // console.log(p)
+    // =========================
+    // function person() {
+    //   this.name = 'person'
+    // }
+    // var p = new person()
+    // console.log(p)
+
+    // 2. 必须要和 new 连用
+    // function Person() {
+    //   this.name = 'person'
+    // }
+    // // 当普通函数使用，p 得到的就应该是函数执行的返回值，现在什么也没写，就是 undefined
+    // var p = Person()
+    // console.log(p)
+    // =========================
+    // function Person() {
+    //   this.name = 'person'
+    // }
+    // // 当普通函数使用，p 得到的就应该是函数执行的返回值，现在什么也没写，就是 undefined
+    // var p = new Person()
+    // console.log(p)
+    // =========================
+    // function Person(name) {
+    //   this.name = name || 'person'
+    // }
+    // // 当普通函数使用，p 得到的就应该是函数执行的返回值，现在什么也没写，就是 undefined
+    // var p = new Person
+    // console.log(p)
+
+
+    // 3. 返回值
+    // function Person(name) {
+    //   this.name = 'person'
+
+    //   return 123
+    // }
+    // var p = new Person
+    // console.log(p)
+    // =========================
+    // function Person(name) {
+    //   this.name = 'person'
+
+    //   return [1,2,3]
+    // }
+    // var p = new Person
+    // console.log(p)
+
+    // 4. this 指向
+    function Person(name) {
+      // 这里的 this 现在指向 p
+      // this.name 等价于 p.name
+      this.name = 'person'
+      this.age = 18
+    }
+    // Person 函数和 new 连用了，Person 函数里面的 this 就应该指向 p
+    var p = new Person
+    var p2 = new Person
+    console.log(p)
+    console.log(p2)
+
+    // 当作普通函数执行了，里面的 this 指向就是调用者，这里是 window
+    Person()
+
+  </script>
+</body>
+</html>

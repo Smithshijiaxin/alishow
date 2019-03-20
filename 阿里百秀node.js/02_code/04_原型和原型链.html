@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // function Person() {
+    //   this.name = 'person'
+    // }
+
+    // // 原型不是给 Person 函数用的，是给实例用给的
+    // Person.prototype.eat = function () {
+    //   console.log('eatting')
+    // }
+
+    // var p = new Person
+
+    // p.eat()
+
+
+    // function Person() {
+    //   // 当函数执行的时候，会一次执行下面的代码
+    //   // 向空间中添加一个成员 name
+    //   this.name = 'person'
+    //   // 向空间中添加一个成员 eat
+    //   // 创造了一个函数给了 eat
+    //   this.eat = function () {
+    //     console.log('eatting')
+    //   }
+    // }
+
+    // // 第一次 new 一个 Person
+    // // 定义了一个 函数，给了 p
+    // var p = new Person
+    // // 第二次 new 一个 Person
+    // // 定义了一个 函数 给了 p2
+    // var p2 = new Person
+
+    // p.eat()
+    // p2.eat()
+
+    // console.log(p.eat)
+    // console.log(p2.eat)
+    // console.log(p.eat === p2.eat)
+
+
+    function Person() {
+      this.name = 'person'
+      this.eat = function () {
+        console.log('eatting')
+      }
+    }
+
+    Person.prototype.run = function () {
+      console.log('running')
+    }
+
+    // 第一次 new 一个 Person
+    // 定义了一个 函数 eat 给了 p
+    var p = new Person
+    // 第二次 new 一个 Person
+    // 定义了一个 函数 eat 给了 p2
+    var p2 = new Person
+
+    p.eat()
+    p2.eat()
+
+    console.log(p.eat)
+    console.log(p2.eat)
+    console.log(p.eat === p2.eat)
+
+    // p 访问自己的成员的时候没有，就会去所属的构造函数的 prototype 中找
+    // p 自己没有，去到 Person.prototype 中刚找到 run 使用
+    p.run()
+    // p2 自己没有，去到 Person.prototype 中刚找到 run 使用
+    p2.run()
+    console.log(p.run)
+    console.log(p2.run)
+    console.log(p2.run === p.run)
+    console.log(p2.run === Person.prototype.run)
+  </script>
+</body>
+</html>
